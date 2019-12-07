@@ -1,0 +1,2 @@
+include ':app', ':commons', ':core', ':viewmodel', ':usecase', ':model'
+rootProject.name='Best Repositories'
