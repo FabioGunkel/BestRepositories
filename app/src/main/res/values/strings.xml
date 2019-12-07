@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Best Repositories</string>
+    <string name="error">Erro</string>
 </resources>

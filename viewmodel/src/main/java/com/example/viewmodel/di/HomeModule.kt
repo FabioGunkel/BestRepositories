@@ -1,8 +1,8 @@
-package com.example.bestrepositories.feature.home.di
+package com.example.viewmodel.di
 
 import com.example.core.di.SCHEDULERS_IO
 import com.example.core.di.SCHEDULERS_MAIN
-import com.example.viewmodel.HomeViewModel
+import com.example.viewmodel.feature.HomeViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance

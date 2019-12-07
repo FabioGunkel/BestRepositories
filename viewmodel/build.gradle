@@ -30,6 +30,7 @@ dependencies {
 
 
     implementation project(":commons")
+    implementation project(":core")
     implementation project(":usecase")
 
     common.each {

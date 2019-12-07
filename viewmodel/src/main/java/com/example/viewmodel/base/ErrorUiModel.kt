@@ -5,29 +5,36 @@ import com.example.usecase.base.Error
 
 data class ErrorUiModel(
     val error: Error,
+    val message : String,
     val positiveText: String,
-    val onPositiveClick: () -> Unit,
-    val finishActivity: Boolean = false
+    val onPositiveClick: () -> Unit
 )
 
 fun Throwable.toUiModel(positiveText: String,
-                        finishActivity: Boolean = false,
                         onPositiveClick: () -> Unit = {}): ErrorUiModel {
     return ErrorUiModel(
         error = Error.UnknownException(this),
         positiveText = positiveText,
-        finishActivity = finishActivity,
+        message = this.localizedMessage,
         onPositiveClick = onPositiveClick
     )
 }
 
 fun Error.toUiModel(
     positiveText: String,
-    finishActivity: Boolean = false,
     onPositiveClick: () -> Unit = {}): ErrorUiModel {
+    val message = when(this){
+        is Error.Default -> {
+            this.message
+        }
+        is Error.UnknownException -> {
+            this.cause.localizedMessage
+        }
+
+    }
     return ErrorUiModel(
         error = this,
         positiveText = positiveText,
-        finishActivity = finishActivity,
+        message = message,
         onPositiveClick = onPositiveClick)
 }

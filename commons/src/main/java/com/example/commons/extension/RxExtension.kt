@@ -1,4 +1,4 @@
-package com.example.bestrepositories.extension
+package com.example.commons.extension
 
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.Observable
