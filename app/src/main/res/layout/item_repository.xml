@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:theme="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginVertical="16dp"
+        android:paddingVertical="@dimen/recyclerview_default_padding_vertical"
+        android:paddingHorizontal="@dimen/recyclerview_default_padding_horizontal"
+        android:background="@drawable/rounded_background">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textview_repository_title"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/design_default_color_on_primary"
+            android:text="NOME DO REP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_mostard_24dp"
+            android:layout_marginStart="@dimen/recyclerview_default_margin"
+            android:layout_marginTop="@dimen/recyclerview_default_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_repository_title"
+            app:layout_constraintStart_toEndOf="@id/imageview_owner_avatar"
+            app:layout_constraintHorizontal_bias="0"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textview_star_number"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_on_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageview_stars"
+            app:layout_constraintStart_toEndOf="@id/imageview_stars"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_stars"
+            app:layout_constraintHorizontal_bias="0"
+            tools:text="2439102"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_forks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_fork"
+            android:layout_marginStart="@dimen/recyclerview_default_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_stars"
+            app:layout_constraintStart_toEndOf="@id/imageview_owner_avatar"
+            app:layout_constraintHorizontal_bias="0"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textview_forks_number"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_on_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageview_forks"
+            app:layout_constraintStart_toEndOf="@id/imageview_forks"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_forks"
+            app:layout_constraintHorizontal_bias="0"
+            tools:text="2439102"/>
+
+        <TextView
+            android:id="@+id/textview_owner_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/recyclerview_default_margin"
+            android:layout_marginStart="@dimen/recyclerview_default_margin"
+            android:textColor="@color/design_default_color_on_primary"
+            app:layout_constraintEnd_toEndOf="@id/imageview_owner_avatar"
+            app:layout_constraintTop_toBottomOf="@id/imageview_owner_avatar"
+            app:layout_constraintStart_toStartOf="@id/imageview_owner_avatar"
+            tools:text="@tools:sample/full_names"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textview_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/recyclerview_default_margin"
+            android:layout_marginTop="@dimen/recyclerview_default_margin"
+            android:layout_marginStart="@dimen/recyclerview_default_margin"
+            android:layout_marginEnd="@dimen/recyclerview_default_margin"
+            android:textColor="@color/design_default_color_on_primary"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_forks"
+            app:layout_constraintStart_toEndOf="@id/imageview_owner_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="@tools:sample/lorem/random"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_owner_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_repository_title"
+            tools:src="@tools:sample/avatars" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -65,16 +65,12 @@ open class BaseActivity : AppCompatActivity(), KodeinAware {
     }
 
     open fun onError(errorUiModel: ErrorUiModel) {
-        when (errorUiModel.error) {
-            is Error -> {
-                AlertDialog.Builder(this)
-                    .setTitle(R.string.error)
-                    .setMessage(errorUiModel.message)
-                    .setPositiveButton(errorUiModel.positiveText) { _, _ ->
-                        errorUiModel.onPositiveClick()
-                    }
-                    .create()
+        AlertDialog.Builder(this)
+            .setTitle(R.string.error)
+            .setMessage(errorUiModel.message)
+            .setPositiveButton(errorUiModel.positiveText) { _, _ ->
+                errorUiModel.onPositiveClick()
             }
-        }
+            .create().show()
     }
 }

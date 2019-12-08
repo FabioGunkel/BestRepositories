@@ -1,4 +1,4 @@
-package com.example.core.di
+package com.example.commons.di
 
 import android.content.Context
 import com.example.commons.util.ResourceProvider

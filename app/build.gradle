@@ -17,6 +17,11 @@ android {
 
     dataBinding.enabled = true
 
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,9 +33,11 @@ android {
 dependencies {
     def common = rootProject.ext.commonDependencies
     def view = rootProject.ext.viewDependencies
+    def uiTests = rootProject.ext.uiTestDependencies
+    def test = rootProject.ext.testDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(":core")
+    implementation project(":common")
     implementation project(":viewmodel")
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
 
@@ -39,5 +46,33 @@ dependencies {
     }
     view.each {
         implementation "${it.value}"
+    }
+    test.each {
+        implementation "${it.value}"
+    }
+
+    uiTests.each {
+        androidTestImplementation "${it.value}"
+    }
+
+    androidTestImplementation ('com.android.support.test:runner:0.5'){
+        exclude module: 'support-annotations'
+    }
+
+    // Set this dependency to use JUnit 4 rules
+    androidTestImplementation ('com.android.support.test:rules:0.5'){
+        exclude module: 'support-annotations'
+    }
+
+    // Set this dependency to build and run Espresso tests
+    androidTestImplementation ('com.android.support.test.espresso:espresso-core:2.2.2'){
+        exclude module: 'support-annotations'
+    }
+
+    // For recycler view actions
+    androidTestImplementation ('com.android.support.test.espresso:espresso-contrib:2.0') {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
     }
 }

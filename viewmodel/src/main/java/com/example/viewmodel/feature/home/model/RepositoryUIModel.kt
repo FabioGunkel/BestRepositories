@@ -1,4 +1,4 @@
-package com.example.viewmodel.feature.model
+package com.example.viewmodel.feature.home.model
 
 import com.example.usecase.RepositoryDomain
 
@@ -7,7 +7,8 @@ data class RepositoryUIModel(
     val stars : String,
     val forks : String,
     val ownerName : String,
-    val ownerPictureUrl : String
+    val ownerPictureUrl : String,
+    val description : String
 )
 
 fun RepositoryDomain.toUIModel() : RepositoryUIModel {
@@ -17,6 +18,7 @@ fun RepositoryDomain.toUIModel() : RepositoryUIModel {
         stars = stars.toString(),
         forks = forks.toString(),
         ownerName = ownerName,
-        ownerPictureUrl = ownerPictureUrl
+        ownerPictureUrl = ownerPictureUrl,
+        description = description ?: ""
     )
 }

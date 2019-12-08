@@ -1,7 +1,8 @@
 package com.example.model.di
 
-import com.example.model.di.DITags
+import com.example.model.BuildConfig
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
@@ -14,7 +15,7 @@ val networkModule = Kodein.Module("NetworkModule") {
 
     bind<Retrofit>(DITags.RETROFIT) with singleton {
         Retrofit.Builder()
-//            .baseUrl(BuildConfig.G)
+            .baseUrl(BuildConfig.GITHUB_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(instance(DITags.OKHTTP))
@@ -23,6 +24,7 @@ val networkModule = Kodein.Module("NetworkModule") {
 
     bind<OkHttpClient>(DITags.OKHTTP) with singleton {
         OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
             .build()
     }
 

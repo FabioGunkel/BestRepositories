@@ -29,7 +29,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
 
-    implementation project(":commons")
+    implementation project(':common')
     implementation project(":core")
     implementation project(":usecase")
 

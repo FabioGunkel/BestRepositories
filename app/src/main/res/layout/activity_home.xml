@@ -8,7 +8,7 @@
 
         <variable
             name="homeViewModel"
-            type="com.example.viewmodel.feature.HomeViewModel" />
+            type="com.example.viewmodel.feature.home.HomeViewModel" />
     </data>
 
 
@@ -16,15 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
+        android:paddingHorizontal="@dimen/default_padding"
+        android:background="@color/design_default_color_secondary_variant"
         tools:context=".feature.home.HomeActivity">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_repositories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_repository"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -22,5 +22,6 @@ fun Repository.toDomain() = RepositoryDomain(
     stars = stargazersCount,
     forks = forks,
     ownerName = owner.login,
-    ownerPictureUrl = owner.avatarUrl
+    ownerPictureUrl = owner.avatarUrl,
+    description = description
 )

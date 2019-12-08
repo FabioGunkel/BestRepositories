@@ -28,7 +28,7 @@ dependencies {
     def common = rootProject.ext.commonDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(":commons")
+    implementation project(':common')
 
     common.each {
         implementation "${it.value}"
