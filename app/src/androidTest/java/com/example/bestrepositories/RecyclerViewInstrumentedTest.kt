@@ -42,6 +42,11 @@ class RecyclerViewInstrumentedTest {
 
         val recyclerview = activityRule.activity.findViewById<RecyclerView>(R.id.recyclerview_repositories)
 
+
+        Thread.sleep(50)
+
+        onView(withId(R.id.loading)).check(matches(isDisplayed()))
+
         Thread.sleep(5000)
 
         // Type text and then press the button.
@@ -53,6 +58,10 @@ class RecyclerViewInstrumentedTest {
         onView(withId(R.id.recyclerview_repositories))
             .perform(RecyclerViewActions.scrollToPosition<RepositoryViewHolder>(recyclerview.adapter!!.itemCount -1))
 
+        Thread.sleep(50)
+
+        onView(withId(R.id.loading)).check(matches(isDisplayed()))
+
         Thread.sleep(5000)
 
         assert(oldSize < recyclerview.size)
@@ -60,6 +69,10 @@ class RecyclerViewInstrumentedTest {
 
         onView(withId(R.id.recyclerview_repositories))
             .perform(RecyclerViewActions.scrollToPosition<RepositoryViewHolder>(recyclerview.adapter!!.itemCount -1))
+
+        Thread.sleep(50)
+
+        onView(withId(R.id.loading)).check(matches(isDisplayed()))
     }
 
 }
