@@ -1,7 +1,7 @@
 package com.example.bestrepositories
 
 import android.app.Application
-import com.example.core.di.KodeinModule
+import com.example.bestrepositories.di.KodeinModule
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 

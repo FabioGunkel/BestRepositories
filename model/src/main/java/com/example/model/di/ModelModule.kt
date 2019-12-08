@@ -7,6 +7,7 @@ import org.kodein.di.Kodein
 val modelModule = Kodein.Module("ModelModule"){
 
     import(networkModule)
+    
     import(searchRepositoryModule)
 
 }

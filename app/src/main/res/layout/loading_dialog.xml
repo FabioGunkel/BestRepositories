@@ -7,12 +7,13 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:lottie_autoPlay="true"
         android:layout_gravity="center"
-        app:lottie_fileName="digio_loading.json"
+        app:lottie_fileName="loading_animation.json"
         app:lottie_speed="2"
+        app:lottie_scale="50"
         app:lottie_loop="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

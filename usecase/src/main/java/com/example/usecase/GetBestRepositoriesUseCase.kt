@@ -1,8 +1,6 @@
 package com.example.usecase
 
 import com.example.model.feature.repositorysearch.SearchRepositoryModel
-import com.example.model.feature.repositorysearch.model.Repository
-import com.example.model.feature.repositorysearch.model.RepositoryResponse
 import com.example.usecase.base.BaseUseCase
 import com.example.usecase.base.Result
 import com.example.usecase.base.toErrorResult
@@ -14,7 +12,7 @@ class GetBestRepositoriesUseCase(
 ) : BaseUseCase<SearchRepositoriesRequest, RepositoriesResponseDomain>() {
     override fun execute(request: SearchRepositoriesRequest): Single<Result<RepositoriesResponseDomain>> {
 
-        return searchRepositoryModel.getRepositoriesByPopularity(request.page)
+        return searchRepositoryModel.getRepositoriesByPopularity(request.page.toString())
             .map {
                 it.toDomain(request.page)
             }.map {
@@ -34,11 +32,12 @@ class RepositoriesResponseDomain(
 ) : BaseUseCase.DomainResponse
 
 class RepositoryDomain(
-    val repositoryName : String,
-    val stars : Int,
-    val forks : Int,
-    val ownerName : String,
-    val ownerPictureUrl : String
+    val repositoryName: String,
+    val stars: Int,
+    val forks: Int,
+    val ownerName: String,
+    val ownerPictureUrl: String,
+    val description: String?
 )
 
 

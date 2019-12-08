@@ -1,11 +1,12 @@
 
 package com.example.bestrepositories
 
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.ProgressBar
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.example.viewmodel.base.BaseViewModel
+import com.example.viewmodel.base.ErrorUiModel
 import org.kodein.di.KodeinAware
 import java.util.*
 
@@ -64,29 +65,12 @@ open class BaseActivity : AppCompatActivity(), KodeinAware {
     }
 
     open fun onError(errorUiModel: ErrorUiModel) {
-        when (errorUiModel.error) {
-            is Error -> {
-                DialogUtils.createInformativeDialog(
-                    activity = this,
-                    title = getString(R.string.dialog_error_title),
-                    text = errorUiModel.error.message,
-                    buttonText = errorUiModel.positiveText,
-                    onPositiveClick = {
-                        errorUiModel.onPositiveClick()
-                        if (errorUiModel.finishActivity) {
-                            this@BaseActivity.finish()
-                        }
-                    })
+        AlertDialog.Builder(this)
+            .setTitle(R.string.error)
+            .setMessage(errorUiModel.message)
+            .setPositiveButton(errorUiModel.positiveText) { _, _ ->
+                errorUiModel.onPositiveClick()
             }
-            is Error.UnknownException -> {
-                DialogUtils.createInformativeDialog(
-                    activity = this,
-                    title = getString(R.string.dialog_error_title),
-                    text = getString(R.string.error_message_unknown),
-                    buttonText = errorUiModel.positiveText,
-                    onPositiveClick = errorUiModel.onPositiveClick
-                )
-            }
-        }
+            .create().show()
     }
 }

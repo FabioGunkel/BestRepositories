@@ -32,7 +32,6 @@ sealed class Error {
         val cause: Throwable? = null
     ) : Error()
 
-    object Unauthorized : Error()
     data class UnknownException(val cause: Throwable) : Error()
 
     companion object {
@@ -44,7 +43,6 @@ fun <T> Throwable.toErrorResult(): Result<T> {
     return when (this) {
         is HttpException -> {
             when (val code = code()) {
-                401 -> Result.Failure(Error.Unauthorized)
                 in 400..499 -> {
                         Result.Failure(
                             Error.Default(

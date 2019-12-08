@@ -7,6 +7,6 @@ class RepositoryApi(
     private val repositoryService : SearchRepositoryService
 ) {
 
-    fun getSortedRepositories(sortBy : String, page : Int): Single<RepositoryResponse>
-            = repositoryService.getRepositoriesByStars(sortBy, page)
+    fun getSortedRepositories(queryMap : HashMap<String, String>): Single<RepositoryResponse>
+            = repositoryService.getRepositoriesByStars(queryMap)
 }
