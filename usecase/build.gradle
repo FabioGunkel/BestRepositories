@@ -27,6 +27,7 @@ android {
 dependencies {
     def common = rootProject.ext.commonDependencies
     def api = rootProject.ext.apiDependencies
+    def test = rootProject.ext.testDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(":model")
@@ -36,6 +37,10 @@ dependencies {
         implementation "${it.value}"
     }
     api.each {
+        implementation "${it.value}"
+    }
+
+    test.each {
         implementation "${it.value}"
     }
 }
